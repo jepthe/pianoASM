@@ -1,0 +1,490 @@
+title   music
+
+sseg    segment stack ;segmento de pila
+db  256 dup(?)
+sseg    ends
+
+dseg    segment ;segmento de datos
+print1  db  "Bienvenido a complicatedPiano.com", 0dh,0ah, "$"
+print2  db  "   ____________________________________________________________", 0dh,0ah, "$"
+print3  db  "  |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |  | ", 0dh,0ah, "$"
+print4  db  "  |  | | | |  |  | | | | | |  |  | | | |  |  | | | | | |  |  | ", 0dh,0ah, "$"
+print5  db  "  |  |2| |3|  |  |5| |6| |7|  |  |S| |D|  |  |G| |H| |J|  |  | ", 0dh,0ah, "$"
+print6  db  "  |  |_| |_|  |  |_| |_| |_|  |  |_| |_|  |  |_| |_| |_|  |  |_", 0dh,0ah, "$"
+print7  db  "  |   |   |   |   |   |   |   | I |   |   |   |   |   |   |   |", 0dh,0ah, "$"
+print8  db  "  | Q | W | E | R | T | Y | U | Z | X | C | V | B | N | M | , |", 0dh,0ah, "$"
+print9  db  "  |___|___|___|___|___|___|___|___|___|___|___|___|___|___|___|", 0dh,0ah, "$"
+print10 db  " salir -> 0 $"
+dseg    ends
+
+cseg segment    ;segmento de código
+assume  ss:sseg,cs:cseg,ds:dseg
+
+start:  jmp main
+
+;configura el altavoz del sistema para producir un tono específico.
+play:
+mov cx,03h
+mov dx,0d40h
+mov ah,86h
+int 15h
+
+mov ah,0h
+out 42h,al
+mov ah,0h
+out 42h,al
+
+mov cx,0h
+mov dx,0h
+mov ah,86h
+int 15h
+ret
+
+
+
+; Cada subrutina de nota configura los registros del temporizador y puertos para producir el tono correspondiente.
+C4:
+mov al,0xE5
+out 42h,al
+mov al,0x11
+out 42h,al
+call play
+ret
+
+C4sD4f:
+mov al, 0xD5
+out 42h, al
+mov al, 0x10
+out 42h, al
+call play
+ret
+
+D4:
+mov al,0xE8
+out 42h,al
+mov al,0x0F
+out 42h,al
+call play
+ret
+
+D4sE4f:
+mov al, 0xFD
+out 42h, al
+mov al, 0x0E
+out 42h, al
+call play
+ret
+
+E4:
+mov al,0x2A
+out 42h,al
+mov al,0x0E
+out 42h,al
+call play
+ret
+
+F4:
+mov al,0x5C
+out 42h,al
+mov al,0x0D
+out 42h,al
+call play
+ret
+
+F4sG4f:
+mov al, 0x99
+out 42h, al
+mov al, 0x0C
+out 42h, al
+call play
+ret
+
+G4:
+mov al,0xEB
+out 42h,al
+mov al,0x0B
+out 42h,al
+call play
+ret
+
+G4sA4f:
+mov al, 0x38
+out 42h, al
+mov al, 0x0B
+out 42h, al
+call play
+ret
+
+A4:
+mov al,0x97
+out 42h,al
+mov al,0x0A
+out 42h,al
+call play
+ret
+
+A4sB4f:
+mov al, 0xFF
+out 42h, al
+mov al, 0x09
+out 42h, al
+call play
+ret
+
+B4:
+mov al,0x7F
+out 42h,al
+mov al,0x09
+out 42h,al
+call play
+ret
+
+C5: ;;;;;;;;;;;;;;;;;;;;;;;;;
+mov al,0xE8
+out 42h,al
+mov al,0x08
+out 42h,al
+call play
+ret
+
+C5sD5f:
+mov al, 0x69
+out 42h, al
+mov al, 0x08
+out 42h, al
+call play
+ret
+
+D5:
+mov al,0xF0
+out 42h,al
+mov al,0x07
+out 42h,al
+call play
+ret
+
+D5sE5f:
+mov al,0x7D   ; Valor calculado para 311.13 Hz
+out 42h, al
+mov al, 0x07
+out 42h, al
+call play
+ret
+
+E5:
+mov al,0x12
+out 42h,al
+mov al,0x07
+out 42h,al
+call play
+ret
+
+F5:
+mov al,0xAC
+out 42h,al
+mov al,0x06
+out 42h,al
+call play
+ret
+
+F5sG5f:
+mov al, 0x4C   ; Valor calculado para 369.99 Hz
+out 42h, al
+mov al, 0x06
+out 42h, al
+call play
+ret
+
+G5:
+mov al,0xF2
+out 42h,al
+mov al,0x05
+out 42h,al
+call play
+ret
+
+G5sA5f:
+mov al, 0x9D   ; Valor calculado para 415.30 Hz
+out 42h, al
+mov al, 0x05
+out 42h, al
+call play
+ret
+
+A5:
+mov al,0x4C
+out 42h,al
+mov al,0x05
+out 42h,al
+call play
+ret
+
+A5sB5f:
+mov al, 0x00   ; Valor calculado para 466.16 Hz
+out 42h, al
+mov al, 0x05
+out 42h, al
+call play
+ret
+
+B5:
+mov al,0xB8
+out 42h,al
+mov al,0x04
+out 42h,al
+call play
+ret
+
+C6:
+mov al,0x74
+out 42h,al
+mov al,0x04
+out 42h,al
+call play
+ret
+
+
+
+;inicializa los registros y muestra el mensaje de bienvenida.
+main:
+;Inicializa el segmento de datos.
+push ds
+xor ax,ax
+push ax
+mov ax,dseg
+mov ds,ax
+
+;Muestra el mensaje de bienvenida.
+mov dx,offset print1
+mov ah,9h
+int 21h
+
+mov dx,offset print2
+mov ah,9h
+int 21h
+
+mov dx,offset print3
+mov ah,9h
+int 21h
+
+mov dx,offset print4
+mov ah,9h
+int 21h
+
+mov dx,offset print5
+mov ah,9h
+int 21h
+
+mov dx,offset print6
+mov ah,9h
+int 21h
+
+mov dx,offset print7
+mov ah,9h
+int 21h
+
+mov dx,offset print8
+mov ah,9h
+int 21h
+
+mov dx,offset print9
+mov ah,9h
+int 21h
+
+mov dx,offset print10
+mov ah,9h
+int 21h
+
+;Configura el controlador del temporizador del sistema.
+mov al,10110110b
+out 43h,al
+in al,61h
+or al,00000011b
+out 61h,al
+
+
+;Bucle de Entrada del Usuario
+;Este bucle espera la entrada del usuario y llama a la subrutina correspondiente basada en la tecla presionada.
+keys:
+mov ah,8h
+int 21h
+
+cmp al,'q'
+je  C4_key
+
+cmp al,'2'
+je  C4sD4f_key ;sf -> sharp y flat (#b)
+
+cmp al,'w'
+je  D4_key
+
+cmp al,'3'
+je  D4sE4f_key
+
+cmp al,'e'
+je  E4_key
+
+cmp al,'r'
+je  F4_key
+
+cmp al,'5'
+je  F4sG4f_key
+
+cmp al,'t'
+je  G4_key
+
+cmp al,'6'
+je  G4sA4f_key
+
+cmp al,'y'
+je  A4_key
+
+cmp al,'7'
+je  A4sB4f_key
+
+cmp al,'u'
+je  B4_key
+
+cmp al,'i'  ;hasta aqui, primera octava
+je  C5_key
+;;;;;;;;;;;;;;;;;;;;;
+cmp al,'0'  ;detener
+je  exit
+;;;;;;;;;;;;;;;;;;;;;
+cmp al,'z'  ;a partir de aqui, segunda octava
+je C5_key   ;es llamado otra vez pero para la seguna octava como inicio de C
+
+cmp al,'s'
+je C5sD5f_key
+
+cmp al,'x'
+je D5_key
+
+cmp al,'d'
+je D5sE5f_key
+
+cmp al,'c'
+je E5_key
+
+cmp al,'v'
+je F5_key
+
+cmp al,'g'
+je F5sG5f_key
+
+cmp al,'b'
+je G5_key
+
+cmp al,'h'
+je G5sA5f_key
+
+cmp al,'n'
+je A5_key
+
+cmp al,'j'
+je A5sB5f_key
+
+cmp al,'m'
+je B5_key
+
+cmp al,','
+je C6_key
+
+
+jmp keys
+
+
+
+C4_key: call C4
+jmp keys ;c regresa otra vez al buble de entrada para esperar otra entrada por el usuario
+
+C4sD4f_key: call C4sD4f
+jmp keys
+
+D4_key: call D4
+jmp keys
+
+D4sE4f_key: call D4sE4f
+jmp keys
+
+E4_key: call E4
+jmp keys
+
+F4_key: call F4
+jmp keys
+
+F4sG4f_key: call F4sG4f
+jmp keys
+
+G4_key: call G4
+jmp keys
+
+G4sA4f_key: call G4sA4f
+jmp keys
+
+A4_key: call A4
+jmp keys
+
+A4sB4f_key: call A4sB4f
+jmp keys
+
+B4_key: call B4
+jmp keys
+
+C5_key: call C5;;;;;;;;;;;;;;;;;;;;
+jmp keys
+
+C5sD5f_key: call C5sD5f
+jmp keys
+
+D5_key: call D5
+jmp keys
+
+D5sE5f_key: call D5sE5f
+jmp keys
+
+E5_key: call E5
+jmp keys
+
+F5_key: call F5
+jmp keys
+
+F5sG5f_key: call F5sG5f
+jmp keys
+
+G5_key: call G5
+jmp keys
+
+G5sA5f_key: call G5sA5f
+jmp keys
+
+A5_key: call A5
+jmp keys
+
+A5sB5f_key: call A5sB5f
+jmp keys
+
+B5_key: call B5
+jmp keys
+
+C6_key: call C6
+jmp keys
+
+
+;La rutina de salida detiene el altavoz y termina el programa.
+exit:
+in  al,61h
+and al,11111100b
+out 61h,al
+
+mov ax,4c00h
+int 21h
+
+cseg    ends
+
+end start
+
+
+
+
+; [SOURCE]: C:\Users\jepth\OneDrive\emu8086\u4\pianoASM.asm

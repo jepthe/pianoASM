@@ -1,0 +1,76 @@
+< THE SYMBOL TABLE >  pianoASM.com  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+SSEG                     	00000     	-5        	SEGMENT   	(ITSELF)  
+DSEG                     	00010     	-5        	SEGMENT   	(ITSELF)  
+PRINT1                   	00000     	1         	VAR       	dseg      
+PRINT2                   	00024     	1         	VAR       	dseg      
+PRINT3                   	00066     	1         	VAR       	dseg      
+PRINT4                   	000A8     	1         	VAR       	dseg      
+PRINT5                   	000EA     	1         	VAR       	dseg      
+PRINT6                   	0012C     	1         	VAR       	dseg      
+PRINT7                   	0016E     	1         	VAR       	dseg      
+PRINT8                   	001B0     	1         	VAR       	dseg      
+PRINT9                   	001F2     	1         	VAR       	dseg      
+PRINT10                  	00234     	1         	VAR       	dseg      
+CSEG                     	00035     	-5        	SEGMENT   	(ITSELF)  
+START                    	00000     	-1        	LABEL     	cseg      
+PLAY                     	00003     	-1        	LABEL     	cseg      
+C4                       	00020     	-1        	LABEL     	cseg      
+C4SD4F                   	0002C     	-1        	LABEL     	cseg      
+D4                       	00038     	-1        	LABEL     	cseg      
+D4SE4F                   	00044     	-1        	LABEL     	cseg      
+E4                       	00050     	-1        	LABEL     	cseg      
+F4                       	0005C     	-1        	LABEL     	cseg      
+F4SG4F                   	00068     	-1        	LABEL     	cseg      
+G4                       	00074     	-1        	LABEL     	cseg      
+G4SA4F                   	00080     	-1        	LABEL     	cseg      
+A4                       	0008C     	-1        	LABEL     	cseg      
+A4SB4F                   	00098     	-1        	LABEL     	cseg      
+B4                       	000A4     	-1        	LABEL     	cseg      
+C5                       	000B0     	-1        	LABEL     	cseg      
+C5SD5F                   	000BC     	-1        	LABEL     	cseg      
+D5                       	000C8     	-1        	LABEL     	cseg      
+D5SE5F                   	000D4     	-1        	LABEL     	cseg      
+E5                       	000E0     	-1        	LABEL     	cseg      
+F5                       	000EC     	-1        	LABEL     	cseg      
+F5SG5F                   	000F8     	-1        	LABEL     	cseg      
+G5                       	00104     	-1        	LABEL     	cseg      
+G5SA5F                   	00110     	-1        	LABEL     	cseg      
+A5                       	0011C     	-1        	LABEL     	cseg      
+A5SB5F                   	00128     	-1        	LABEL     	cseg      
+B5                       	00134     	-1        	LABEL     	cseg      
+C6                       	00140     	-1        	LABEL     	cseg      
+MAIN                     	0014C     	-1        	LABEL     	cseg      
+KEYS                     	001A5     	-1        	LABEL     	cseg      
+C4_KEY                   	00269     	-1        	LABEL     	cseg      
+C4SD4F_KEY               	0026F     	-1        	LABEL     	cseg      
+D4_KEY                   	00275     	-1        	LABEL     	cseg      
+D4SE4F_KEY               	0027B     	-1        	LABEL     	cseg      
+E4_KEY                   	00281     	-1        	LABEL     	cseg      
+F4_KEY                   	00287     	-1        	LABEL     	cseg      
+F4SG4F_KEY               	0028D     	-1        	LABEL     	cseg      
+G4_KEY                   	00293     	-1        	LABEL     	cseg      
+G4SA4F_KEY               	00299     	-1        	LABEL     	cseg      
+A4_KEY                   	0029F     	-1        	LABEL     	cseg      
+A4SB4F_KEY               	002A5     	-1        	LABEL     	cseg      
+B4_KEY                   	002AB     	-1        	LABEL     	cseg      
+C5_KEY                   	002B1     	-1        	LABEL     	cseg      
+C5SD5F_KEY               	002B7     	-1        	LABEL     	cseg      
+D5_KEY                   	002BD     	-1        	LABEL     	cseg      
+D5SE5F_KEY               	002C3     	-1        	LABEL     	cseg      
+E5_KEY                   	002C9     	-1        	LABEL     	cseg      
+F5_KEY                   	002CF     	-1        	LABEL     	cseg      
+F5SG5F_KEY               	002D5     	-1        	LABEL     	cseg      
+G5_KEY                   	002DB     	-1        	LABEL     	cseg      
+G5SA5F_KEY               	002E1     	-1        	LABEL     	cseg      
+A5_KEY                   	002E7     	-1        	LABEL     	cseg      
+A5SB5F_KEY               	002ED     	-1        	LABEL     	cseg      
+B5_KEY                   	002F3     	-1        	LABEL     	cseg      
+C6_KEY                   	002F9     	-1        	LABEL     	cseg      
+EXIT                     	002FF     	-1        	LABEL     	cseg      
+===================================================================================================
+[ 5/27/2024  --  6:04:11 AM ] 
+< END >
+ 
